@@ -2,12 +2,12 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 10;       /* gap pixel between windows */
+static const unsigned int gappx     = 0;       /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "xos4 terminus:size=12" };
-static const char dmenufont[]       = "xos4 terminus:size=12";
+static const char *fonts[]          = { "xos4 terminus:size=10" };
+static const char dmenufont[]       = "xos4 terminus:size=10";
 static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#a89984";
 static const char col_gray3[]       = "#a89984";
@@ -59,15 +59,17 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *lightup[] = { "xbacklight", "-inc" , "10", NULL };
+static const char *lightdown[] = { "xbacklight", "-dec" , "10", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_Up,     focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_Up,     spawn,          {.v = lightup } },
 	{ MODKEY,                       XK_Left,   focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_Down,   focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_Down,   spawn,          {.v = lightdown } },
 	{ MODKEY,                       XK_Right,  focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_v,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_h,      incnmaster,     {.i = -1 } },
