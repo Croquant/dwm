@@ -2,17 +2,17 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 0;       /* gap pixel between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int gappx     = 8;       /* gap pixel between windows */
+static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "xos4 terminus:size=10" };
 static const char dmenufont[]       = "xos4 terminus:size=10";
-static const char col_gray1[]       = "#282828";
-static const char col_gray2[]       = "#a89984";
-static const char col_gray3[]       = "#a89984";
-static const char col_gray4[]       = "#ebdbb2";
-static const char col_cyan[]        = "#458588";
+static const char col_gray1[]       = "#000000";
+static const char col_gray2[]       = "#34495e";
+static const char col_gray3[]       = "#bdc3c7";
+static const char col_gray4[]       = "#FFFFFF";
+static const char col_cyan[]        = "#2980b9";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "!", "@", "#", "$", "%" };
+static const char *tags[] = { "1", "2", "3", "4", "5" };
 
 static const Rule rules[] = {
 	/* xprop(1):
